@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Julekalender</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/htmx.org"></script>
+</head>
+<body>
+    <h1>Julekalender</h1>
+    <div class="calendar">
+        <!-- Kalenderen inneholder 24 dager -->
+        {% for day in range(1, 25) %}
+        <button 
+            class="day" 
+            id="day-{{ day }}" 
+            hx-post="/open-day" 
+            hx-vals='{"day": "{{ day }}"}' 
+            hx-swap="outerHTML">
+            {{ day }}
+        </button>
+        {% endfor %}
+    </div>
+</body>
+</html>

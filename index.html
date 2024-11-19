@@ -8,24 +8,26 @@
     <script src="https://unpkg.com/htmx.org"></script>
 </head>
 <body>
-    <div class="calendar-container">
-        <h1>🎄 Julekalender 🎁</h1>
-        <div class="calendar-grid">
-            <!-- 24 dager -->
-            <!-- Dagene hentes dynamisk med HTMX -->
-            <!-- Når en boks åpnes, lastes innhold via HTMX -->
-            <div class="calendar-day" 
-                hx-get="/get-day-content" 
-                hx-trigger="click" 
-                hx-swap="innerHTML"
-                data-day="1">1</div>
-            <div class="calendar-day" 
-                hx-get="/get-day-content" 
-                hx-trigger="click" 
-                hx-swap="innerHTML"
-                data-day="2">2</div>
-            
+    <h1>Julekalender</h1>
+    <div class="calendar">
+        <!-- Genererer 24 knapper -->
+        <div class="days">
+            <!-- Hver dag sendes til backend med HTMX -->
+            <!-- id er knyttet til dagen som åpnes -->
+            <button 
+                class="day" 
+                hx-post="/open-day" 
+                hx-target="#day-result" 
+                hx-swap="innerHTML" 
+                data-day="1">1</button>
+            <button 
+                class="day" 
+                hx-post="/open-day" 
+                hx-target="#day-result" 
+                hx-swap="innerHTML" 
+                data-day="2">2</button>
+            <!-- Gjenta for alle dager (opptil 24) -->
+            <!-- Dynamisk data kan fylles via backend/JS -->
         </div>
     </div>
-</body>
-</html>
+    <!-- Popup mer container -->
