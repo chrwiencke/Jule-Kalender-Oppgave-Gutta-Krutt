@@ -11,11 +11,30 @@
         <h1>Julekalender</h1>
         <div class="days">
             <!-- Generer 24 dager -->
-            <script>
-                for (let i = 1; i <= 24; i++) {
-                    document.write(`<div class="day" onclick="showGift(${i})">${i}</div>`);
-                }
-            </script>
+            <div class="day" onclick="showGift(1)">1</div>
+            <div class="day" onclick="showGift(2)">2</div>
+            <div class="day" onclick="showGift(3)">3</div>
+            <div class="day" onclick="showGift(4)">4</div>
+            <div class="day" onclick="showGift(5)">5</div>
+            <div class="day" onclick="showGift(6)">6</div>
+            <div class="day" onclick="showGift(7)">7</div>
+            <div class="day" onclick="showGift(8)">8</div>
+            <div class="day" onclick="showGift(9)">9</div>
+            <div class="day" onclick="showGift(10)">10</div>
+            <div class="day" onclick="showGift(11)">11</div>
+            <div class="day" onclick="showGift(12)">12</div>
+            <div class="day" onclick="showGift(13)">13</div>
+            <div class="day" onclick="showGift(14)">14</div>
+            <div class="day" onclick="showGift(15)">15</div>
+            <div class="day" onclick="showGift(16)">16</div>
+            <div class="day" onclick="showGift(17)">17</div>
+            <div class="day" onclick="showGift(18)">18</div>
+            <div class="day" onclick="showGift(19)">19</div>
+            <div class="day" onclick="showGift(20)">20</div>
+            <div class="day" onclick="showGift(21)">21</div>
+            <div class="day" onclick="showGift(22)">22</div>
+            <div class="day" onclick="showGift(23)">23</div>
+            <div class="day" onclick="showGift(24)">24</div>
         </div>
         <div id="gift" class="gift"></div>
     </div>
@@ -25,7 +44,27 @@
             const gifts = [
                 "Gave 1: En sjokolade",
                 "Gave 2: En liten leke",
-                // Legg til flere gaver her
+                "Gave 3: En julepynt",
+                "Gave 4: En pepperkake",
+                "Gave 5: En liten bok",
+                "Gave 6: En nøkkelring",
+                "Gave 7: En liten bamse",
+                "Gave 8: En julekort",
+                "Gave 9: En liten bil",
+                "Gave 10: En julelys",
+                "Gave 11: En liten puslespill",
+                "Gave 12: En julekrans",
+                "Gave 13: En liten notatbok",
+                "Gave 14: En julemusikk-CD",
+                "Gave 15: En liten plante",
+                "Gave 16: En julefilm",
+                "Gave 17: En liten dukke",
+                "Gave 18: En julekalender",
+                "Gave 19: En liten lommelykt",
+                "Gave 20: En juledekorasjon",
+                "Gave 21: En liten veske",
+                "Gave 22: En julebok",
+                "Gave 23: En liten klokke",
                 "Gave 24: En stor overraskelse!"
             ];
             document.getElementById('gift').innerText = gifts[day - 1];
