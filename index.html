@@ -7,6 +7,59 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <h1>Submit Your Answer</h1>
+<form id="answerForm">
+<div>
+<label for="textAnswer">Answer:</label>
+<input type="text" id="textAnswer" name="textAnswer" required>
+</div>
+<div>
+<label for="dayNumber">Day Number:</label>
+<input type="number" id="dayNumber" name="dayNumber" required>
+</div>
+<div>
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+</div>
+<button type="submit">Submit</button>
+</form>
+<div id="response"></div>
+ 
+    <script>
+        document.getElementById('answerForm').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const textAnswer = document.getElementById('textAnswer').value;
+            const dayNumber = parseInt(document.getElementById('dayNumber').value, 10);
+            const email = document.getElementById('email').value;
+ 
+            // Validate input types
+            if (typeof textAnswer !== 'string' || typeof dayNumber !== 'number' || typeof email !== 'string') {
+                document.getElementById('response').innerText = 'Invalid input types';
+                return;
+            }
+ 
+            // Validate dayNumber range
+            if (dayNumber < 1 || dayNumber > 31) {
+                document.getElementById('response').innerText = 'Day number must be between 1 and 31';
+                return;
+            }
+ 
+            try {
+                const response = await fetch('http://10.12.2.150:3001/api/answer', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ textAnswer, dayNumber, email })
+                });
+ 
+                const result = await response.json();
+                document.getElementById('response').innerText = JSON.stringify(result, null, 2);
+            } catch (error) {
+                document.getElementById('response').innerText = 'Error: ' + error.message;
+            }
+        });
+</script>
     <div class="calendar">
         <h1>Julekalender</h1>
         <div class="days">
