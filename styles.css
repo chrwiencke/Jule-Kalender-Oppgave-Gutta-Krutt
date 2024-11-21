@@ -1,43 +1,42 @@
 body {
     font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0;
-    padding: 0;
-}
-
-h1 {
-    margin-top: 20px;
-    color: #d32f2f;
 }
 
 .calendar {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.days {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 10px;
-    max-width: 600px;
-    margin: 30px auto;
 }
 
 .day {
-    background-color: #fff;
-    border: 2px solid #d32f2f;
-    border-radius: 10px;
+    background-color: #ff6347;
+    color: #fff;
     padding: 20px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #d32f2f;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s;
 }
 
-.day:disabled {
-    background-color: #ddd;
-    border: 2px solid #aaa;
-    color: #999;
-    cursor: not-allowed;
+.day:hover {
+    background-color: #ff4500;
 }
 
-.day:hover:not(:disabled) {
-    background-color: #ffd7d7;
+.gift {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
 }

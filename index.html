@@ -5,29 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julekalender</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://unpkg.com/htmx.org"></script>
 </head>
 <body>
-    <h1>Julekalender</h1>
     <div class="calendar">
-        <!-- Genererer 24 knapper -->
+        <h1>Julekalender</h1>
         <div class="days">
-            <!-- Hver dag sendes til backend med HTMX -->
-            <!-- id er knyttet til dagen som åpnes -->
-            <button 
-                class="day" 
-                hx-post="/open-day" 
-                hx-target="#day-result" 
-                hx-swap="innerHTML" 
-                data-day="1">1</button>
-            <button 
-                class="day" 
-                hx-post="/open-day" 
-                hx-target="#day-result" 
-                hx-swap="innerHTML" 
-                data-day="2">2</button>
-            <!-- Gjenta for alle dager (opptil 24) -->
-            <!-- Dynamisk data kan fylles via backend/JS -->
+            <!-- Generer 24 dager -->
+            <script>
+                for (let i = 1; i <= 24; i++) {
+                    document.write(`<div class="day" onclick="showGift(${i})">${i}</div>`);
+                }
+            </script>
         </div>
+        <div id="gift" class="gift"></div>
     </div>
-    <!-- Popup mer container -->
+
+    <script>
+        function showGift(day) {
+            const gifts = [
+                "Gave 1: En sjokolade",
+                "Gave 2: En liten leke",
+                // Legg til flere gaver her
+                "Gave 24: En stor overraskelse!"
+            ];
+            document.getElementById('gift').innerText = gifts[day - 1];
+        }
+    </script>
+</body>
+</html>
